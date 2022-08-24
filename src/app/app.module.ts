@@ -6,19 +6,29 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { ClientesComponent } from './clientes/clientes.component';
+import { ClienteService } from './clientes/cliente.service';
+import { Routes } from '@angular/router';
+
+
+const routes: Routes = [
+    {path: '', redirectTo: '/clientes', pathMatch: 'full'},
+    {path: 'directiva', component: DirectivaComponent},
+    {path: 'clientes', component: ClientesComponent},
+    
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    DirectivaComponent,
-    ClientesComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        DirectivaComponent,
+        ClientesComponent
+    ],
+    imports: [
+        BrowserModule
+    ],
+    providers: [ClienteService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
